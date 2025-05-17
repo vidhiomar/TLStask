@@ -1,5 +1,14 @@
 import React from 'react';
-import { Code2, Database, Cloud, Terminal, BookOpen, Users, GraduationCap, Star } from 'lucide-react';
+import {
+  Code2,
+  Database,
+  Cloud,
+  Terminal,
+  BookOpen,
+  Users,
+  GraduationCap,
+  Star,
+} from 'lucide-react';
 
 const features = [
   {
@@ -51,6 +60,7 @@ const TechPrep = () => {
   return (
     <section id="techprep" className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#070054] mb-4">TechPrep Program</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -58,6 +68,7 @@ const TechPrep = () => {
           </p>
         </div>
 
+        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, index) => (
             <div
@@ -71,17 +82,19 @@ const TechPrep = () => {
           ))}
         </div>
 
-         <div className="text-center">
-          <button className="bg-[#070054] text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors mb-5">
+        {/* Call to Action Button */}
+        <div className="text-center mb-16">
+          <button className="bg-[#070054] text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
             View Full Curriculum
           </button>
         </div>
 
+        {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-[#f9f9f9] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col items-center bg-[#f9f9f9] p-6 rounded-lg shadow-md border border-transparent hover:border-[#070054] transition-all duration-300"
             >
               <div className="mb-4">{stat.icon}</div>
               <h3 className="text-3xl font-bold text-[#070054]">{stat.value}</h3>
@@ -89,8 +102,6 @@ const TechPrep = () => {
             </div>
           ))}
         </div>
-
-       
       </div>
     </section>
   );
