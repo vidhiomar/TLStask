@@ -25,7 +25,6 @@ const MiniProjects = () => {
   return (
     <section id="miniprojects" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#070054] mb-4">Mini Projects</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -33,7 +32,6 @@ const MiniProjects = () => {
           </p>
         </div>
 
-        {/* Tabs */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
             <TabButton 
@@ -57,7 +55,6 @@ const MiniProjects = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects[activeTab].map((project, index) => (
             <div

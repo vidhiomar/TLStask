@@ -6,7 +6,6 @@ const DesignLab = () => {
     <section id="designlab" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-[#070054]">
               DesignLab: Interactive Learning
@@ -46,7 +45,6 @@ const DesignLab = () => {
             </button>
           </div>
 
-          {/* Code Preview Box */}
           <div className="bg-white p-6 rounded-lg shadow-xl">
             <div className="bg-gray-800 rounded-lg p-4">
               <div className="flex space-x-2 mb-4">

@@ -36,7 +36,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen bg-[#070054] text-white py-10">
+    <section id="home" className="min-h-screen bg-[#070054] text-white py-10 px-20">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8 mt-12">
