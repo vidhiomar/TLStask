@@ -2,10 +2,6 @@
 
 Thank you for considering my submission for the **Front‑End Developer role at TechLearn Solutions**. I’m **Vidhi Omar**, and this repository contains a concept landing page built using **React**, **Tailwind CSS**, **Framer Motion**, and other modern front‑end tools.
 
-## Live Demo
-
-*(Add your deployed link here, e.g. Netlify/Vercel/GitHub Pages)*
-
 ##  Repository
 
 You can find the full source and setup instructions here:  
