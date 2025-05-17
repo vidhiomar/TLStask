@@ -77,6 +77,6 @@ This landing page showcases the core offerings of TechLearn Solutions in a clean
 2. **Start dev server** 
     npm run dev
 
-## Acknowledgments:
+## Acknowledgment
 Logo and assets provided by TechLearn Solutions
 Icons from Lucide

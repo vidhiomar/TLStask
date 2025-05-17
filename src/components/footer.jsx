@@ -6,7 +6,8 @@ const Footer = () => {
     <footer id="contact" className="bg-[#070054] text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-\          <div>
+          
+          <div>
             <div className="flex items-center space-x-2 mb-4">
               <GraduationCap className="h-8 w-8" />
               <h3 className="text-xl font-bold">TechLearn Solutions</h3>
