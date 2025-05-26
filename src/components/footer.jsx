@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { GraduationCap, Mail, Phone, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
               <h3 className="text-xl font-bold">TechLearn Solutions</h3>
             </div>
             <p className="text-gray-300 mb-4">
-              Empowering the next generation of tech professionals through comprehensive training and hands-on experience.
+              Empowering tomorrow’s tech pros with hands-on training and real-world projects.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -31,10 +31,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {['home', 'techprep', 'designlab', 'summerintern', 'miniprojects'].map((id) => (
+              {['home','techprep','designlab','summerintern','miniprojects'].map(id => (
                 <li key={id}>
-                  <a href={`#${id}`} className="text-gray-300 hover:text-white transition-colors capitalize">
-                    {id.replace(/([a-z])([A-Z])/g, '$1 $2')}
+                  <a
+                    href={`#${id}`}
+                    className="text-gray-300 hover:text-white transition-colors capitalize"
+                  >
+                    {id.replace(/([a-z])([A-Z])/g,'$1 $2')}
                   </a>
                 </li>
               ))}
@@ -43,17 +46,15 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Programs</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-gray-300">
               {[
                 'Placement Training',
                 'Web Development',
                 'Mobile App Development',
                 'Data Science',
-                'Cloud Computing',
-              ].map((program) => (
-                <li key={program} className="text-gray-300">
-                  {program}
-                </li>
+                'Cloud Computing'
+              ].map(prog => (
+                <li key={prog}>{prog}</li>
               ))}
             </ul>
           </div>
@@ -61,12 +62,6 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-gray-300" />
-                <span className="text-gray-300">
-                  123 Tech Avenue, Innovation District, Cityville, ST 12345
-                </span>
-              </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-gray-300" />
                 <span className="text-gray-300">(123) 456-7890</span>
