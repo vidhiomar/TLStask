@@ -1,21 +1,19 @@
-// src/components/Card.jsx
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
 const images = [
+  '/docker.png',
   '/awsLogo.png',
-  '/dockerLogo.jpeg',
   '/k8sLogo.webp',
   '/Azure.webp',
 ];
 
 const Card = () => (
-  <div className="relative h-[500px] overflow-hidden">
-    {/* Background Marquee */}
+  <div className="relative h-[500px] overflow-hidden disabled='true'">
     <div
       className="absolute inset-0 z-0"
       style={{
-        transform: 'rotate(-10deg) scale(1.5)',
+        transform: 'rotate(-10deg) scale(2.0)',
         transformOrigin: 'center center',
       }}
     >
@@ -26,13 +24,13 @@ const Card = () => (
         pauseOnHover={false}
         style={{ height: '100%', width: '100%' }}
       >
-        <div className="flex flex-col gap-8 items-center">
+        <div className="flex flex-col gap-2 items-center">
           {images.map((src, idx) => (
             <img
               key={idx}
               src={src}
               alt={`bg-${idx}`}
-              className="w-[150px] h-[150px] object-cover opacity-30"
+              className="w-[150px] h-[150px] object-cover opacity-25"
             />
           ))}
         </div>

@@ -1,39 +1,9 @@
-// src/components/Hero.jsx
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Typewriter from './Typewriter';
-import './Hero.css';
 import Card from './Card';
 
 export default function Hero() {
-  const marqueeImages = [
-    '/oneImg.jpg',
-    '/twoImg.jpeg',
-    '/threeImg.jpg',
-    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
-    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
-  ];
-  const gridImages = Array(9).fill(
-    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg'
-  );
-
-  const renderMarquee = (direction, keyPrefix) => {
-    const cls = direction === 'ltr' ? 'marquee' : 'marquee-reverse';
-    return (
-      <div className="overflow-hidden mt-[5px]" key={keyPrefix}>
-        <div className={`inline-flex gap-[5px] whitespace-nowrap ${cls}`}>
-          {marqueeImages.concat(marqueeImages).map((src, i) => (
-            <img
-              key={`${keyPrefix}-${i}`}
-              src={src}
-              alt={`${keyPrefix}-${i}`}
-              className="w-1/3 h-24 object-cover"
-            />
-          ))}
-        </div>
-      </div>
-    );
-  };
 
   return (
     <section id="home" className="min-h-screen bg-[#070054] text-white py-10 px-20">
@@ -59,6 +29,7 @@ export default function Hero() {
           </div>
 
           <Card/>
+
         </div>
       </div>
     </section>

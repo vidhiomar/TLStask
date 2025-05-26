@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset default margins to allow full‑screen layouts */
 html, body, #root {
   margin: 0;
   padding: 0;
