@@ -22,7 +22,9 @@ const Card = () => (
         speed={50}
         gradient={false}
         pauseOnHover={false}
-        style={{ height: '100%', width: '100%' }}
+        pauseOnClick={false}
+
+        style={{ height: '100%', width: '100%' ,  pointerEvents: 'none' }}
       >
         <div className="flex flex-col gap-2 items-center">
           {images.map((src, idx) => (
