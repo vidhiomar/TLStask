@@ -1,4 +1,3 @@
-// SignInPage.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -31,9 +30,9 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative">
-           <div className="relative w-full max-w-md">
-        <div className=" border border-[#070054] shadow-2xl rounded-2xl p-8 hover:shadow-3xl transition-shadow duration-300">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative bg-gradient-to-b from-[#070054] via-[#3A3987]to-[#070054]">
+      <div className="relative w-full max-w-md">
+?        <div className="bg-white border border-[#070054] shadow-2xl rounded-2xl p-8 hover:shadow-3xl transition-shadow duration-300">
           
           {/* Header */}
           <div className="text-center mb-8">
@@ -186,33 +185,6 @@ export default function SignInPage() {
               Create account
             </Link>
           </p>
-        </div>
-
-        {/* Trust indicators */}
-        <div className="mt-8 text-center">
-          <p className="text-xs text-[#070054]/50 mb-2">
-            Trusted by 50,000+ users worldwide
-          </p>
-          <div className="flex justify-center items-center space-x-6 text-[#070054]/40">
-            <div className="flex items-center space-x-1">
-              <Lock className="w-3 h-3" />
-              <span className="text-xs">SSL Secured</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <svg
-                className="w-3 h-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                />
-              </svg>
-              <span className="text-xs">Privacy Protected</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -19,17 +19,17 @@ export default function SignUpPage() {
     try {
       const response = await axios.post('/api/signup', form); // Replace with full URL if needed
       console.log('Sign-up successful:', response.data);
-      // Optionally redirect user or show a success message
     } catch (error) {
       console.error('Sign-up error:', error.response?.data || error.message);
-      // Optionally show error message to user
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
+// - <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
+  // <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#070054] to-[#d9d9d9] p-4 relative overflow-hidden">
+   <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#070054] via-[#3A3987]to-[#070054] p-4 relative overflow-hidden">
       <div className="relative w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#070054]">
           <div className="relative py-8 px-6" style={{ background: 'linear-gradient(135deg, #070054 0%, #0a0066 100%)' }}>
             <div className="absolute inset-0 bg-black opacity-10"></div>
             <div className="relative text-center">
@@ -38,7 +38,7 @@ export default function SignUpPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h1 className="text-white text-3xl font-bold tracking-tight">Join Us</h1>
+              <h1 className="text-white text-3xl font-bold tracking-tight">Join Us!</h1>
               <p className="text-white/80 text-sm mt-2">Create your account to get started</p>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function SignUpPage() {
             </button>
 
             {/* Redirect Link */}
-            <div className="text-center pt-4 border" style={{ borderColor: '#d9d9d9' }}>
+            <div className="text-center pt-4 border-none" style={{  }}>
               <p className="text-sm text-gray-600">
                 Already have an account?{' '}
                 <Link to="/signin" className="font-semibold hover:underline transition-colors duration-200" style={{ color: '#070054' }}>
