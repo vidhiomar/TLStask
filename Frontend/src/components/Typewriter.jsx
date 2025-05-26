@@ -1,4 +1,3 @@
-// src/components/Typewriter.jsx
 import React, { useState, useEffect } from 'react';
 
 export default function Typewriter({ text, speed = 100 }) {
