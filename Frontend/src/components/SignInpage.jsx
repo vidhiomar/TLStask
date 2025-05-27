@@ -15,19 +15,26 @@ export default function SignInPage() {
   const [errors, setErrors] = useState({});
 
   const handleSignIn = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setErrors({});
+  e.preventDefault();
+  setIsLoading(true);
+  setErrors({});
 
-    try {
-      const response = await axios.post('/api/signin', { email, password });
-      console.log('Sign in successful:', response.data);
-    } catch (err) {
-      setErrors({ general: 'Invalid email or password' });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  try {
+    const response = await axios.post('http://localhost:3000/api/user/signin', {
+      email,
+      password
+    });
+
+    console.log('Sign in successful:', response.data);
+    // Optional: Redirect or store token here
+  } catch (err) {
+    console.error('Sign-in error:', err.response?.data || err.message);
+    setErrors({ general: 'Invalid email or password' });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <>
