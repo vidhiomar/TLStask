@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import NavBar from './NavBar1';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 
@@ -29,9 +30,11 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative bg-gradient-to-b from-[#070054] via-[#3A3987]to-[#070054]">
-      <div className="relative w-full max-w-md">
-?        <div className="bg-white border border-[#070054] shadow-2xl rounded-2xl p-8 hover:shadow-3xl transition-shadow duration-300">
+    <>
+      <NavBar />
+      <div className="min-h-screen flex items-center justify-center px-4 pt-13 py-8 relative bg-gradient-to-b from-[#070054] via-[#3A3987]to-[#070054]">
+      <div className="relative w-full max-w-md">?  
+              <div className="bg-white border border-[#070054] shadow-2xl rounded-2xl p-8 hover:shadow-3xl transition-shadow duration-300">
           
           {/* Header */}
           <div className="text-center mb-8">
@@ -186,6 +189,8 @@ export default function SignInPage() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
+ 
   );
 }

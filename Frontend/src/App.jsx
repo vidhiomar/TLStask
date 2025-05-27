@@ -16,14 +16,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col bg-white text-black">
-        <NavBar />
 
         <main className="flex-grow">
           <Routes>
             <Route
-              path="/"
+              path= "/"
               element={
                 <>
+                  <NavBar />
                   <Hero />
                   <TechPrep />
                   <DesignLab />

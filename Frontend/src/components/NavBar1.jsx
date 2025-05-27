@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NavItem from './NavItem';
-import { Link } from 'react-router-dom';
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -34,15 +33,7 @@ export default function NavBar() {
             ))}
           </ul>
 
-          {/* Desktop Sign Up */}
-          <div className="hidden md:flex">
-            <Link
-              to="/signup"
-              className="px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
-            >
-              Sign Up
-            </Link>
-          </div>
+          
 
           {/* Mobile Toggle */}
           <div className="md:hidden">
@@ -74,15 +65,7 @@ export default function NavBar() {
             ))}
           </ul>
 
-          {/* Mobile Sign Up */}
-          <div className="px-4 pb-4">
-            <Link
-              to="/signup"
-              className="block text-center px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
-            >
-              Sign Up
-            </Link>
-          </div>
+          
         </div>
       )}
     </nav>
