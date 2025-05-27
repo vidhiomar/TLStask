@@ -21,7 +21,6 @@ export default function SignInPage() {
     try {
       const response = await axios.post('/api/signin', { email, password });
       console.log('Sign in successful:', response.data);
-      // TODO: redirect/store token
     } catch (err) {
       setErrors({ general: 'Invalid email or password' });
     } finally {

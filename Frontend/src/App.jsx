@@ -10,6 +10,7 @@ import MiniProjects from './components/MiniProjects';
 import Footer from './components/Footer';
 import SignUpPage from './components/SignUpPage';
 import SignInPage from './components/SignInPage'; 
+import Dashboard from './components/Dashboard';
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/signin" element={<SignInPage />} />
             <Route path="*" element={<Hero />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
 
