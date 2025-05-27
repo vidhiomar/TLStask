@@ -6,6 +6,8 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/userRoutes');
 const exerciseRoutes = require('./routes/exerciseRoutes');
+const progressRoutes = require('./routes/progress');
+
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use(express.static('public'));
 
 app.use('/api/user', userRoutes);
 app.use('/api/exercises', exerciseRoutes);
+app.use('/api/progress', progressRoutes);
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
