@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "title": "The Web Awakens – Creating Your First HTML Page",
+        "story": "Every adventure begins somewhere. This one begins with your first-ever HTML page. Let's put it together and start your journey on the web!",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Web Adventure</title>\n</head>\n<body>\n  <h1>The Journey of HTML Begins</h1>\n</body>\n</html>",
+        "hint": "Use <!DOCTYPE html> and wrap everything in <html>, <head>, and <body> tags."
+    },
+    {
+        "id": 2,
+        "title": "Speak Loud and Clear – Meet the Headings!",
+        "story": "Headings are like signboards on the road. They help you organize your ideas and guide your readers.",
+        "theory": "<body>\n  <h1>Main Title</h1>\n  <h2>Subheading Level 1</h2>\n  <h6>The smallest whisper of a heading</h6>\n</body>",
+        "hint": "Try adding <h3> and <h4> between them."
+    },
+    {
+        "id": 3,
+        "title": "The Grocery Scroll – Unleashing Lists",
+        "story": "It's time to organize your pantry and cooking steps using lists! You’ll use both unordered and ordered lists to do this.",
+        "theory": "<body>\n  <h2>My Grocery List</h2>\n  <ul>\n    <li>Milk</li>\n    <li>Eggs</li>\n    <li></li>\n  </ul>\n  <h2>Steps to Make a Sandwich</h2>\n  <ol>\n    <li>Take two slices of bread</li>\n    <li>Spread butter or sauce</li>\n    <li>Place your favorite filling</li>\n    <li>Put slices together and enjoy!</li>\n  </ol>\n</body>",
+        "hint": "Use <li> tags to list grocery items and sandwich steps."
+    },
+    {
+        "id": 4,
+        "title": "Picture Perfect – Adding an Image",
+        "story": "Images speak louder than text sometimes. Time to decorate your webpage with an image of your favorite thing!",
+        "theory": "<body>\n  <h2>This is My Favorite Animal</h2>\n  <img src=\"https://unsplash.com/photos/a-girl-takes-a-photo-with-her-camera-oGeVYS5PoEI\" alt=\"A girl with camera\" width=\"300\">\n</body>",
+        "hint": "Use <img src=\"...\" alt=\"...\"> to embed your image."
+    },
+    {
+        "id": 5,
+        "title": "The Great Divide – Sections, Classes & Divs",
+        "story": "Think of your webpage like rooms in a house. Sections and divs help organize each room.",
+        "theory": "<body>\n  <section class=\"about-me\">\n    <h2>About Me</h2>\n    <p>I am learning frontend development and loving it!</p>\n  </section>\n  <div class=\"fun-facts\">\n    <h3>Fun Facts</h3>\n    <ul>\n      <li>I can solve a Rubik's Cube</li>\n      <li>I love coffee</li>\n      <li></li>\n    </ul>\n  </div>\n</body>",
+        "hint": "Use semantic <section> and generic <div> to organize content."
+    },
+    {
+        "id": 6,
+        "title": "What is CSS?",
+        "story": "Imagine your website is a plain cake — CSS is the frosting and decorations that make it irresistible! CSS controls how your HTML looks.",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>CSS Basics</title>\n  <style>\n    body {\n      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n      background-color: #f0f8ff;\n      color: #333;\n      margin: 20px;\n    }\n    h1, h2 {\n      color: #1e90ff;\n    }\n  </style>\n</head>\n<body>\n  <h1>Welcome to CSS!</h1>\n  <h2>Making websites beautiful, one style at a time</h2>\n  <p>Notice how the background and text colors change the whole mood of the page.</p>\n</body>\n</html>",
+        "hint": "Use the <style> tag inside <head> to add CSS and try changing colors or fonts!"
+    },
+    {
+        "id": 7,
+        "title": "Styling Lists Like a Pro",
+        "story": "Lists organize your content like a neat shelf. But plain bullet points are boring! Let’s spice them up with custom colors and spacing.",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Styled Lists</title>\n  <style>\n    ul {\n      list-style-type: square;\n      padding-left: 20px;\n      color: green;\n      font-weight: bold;\n    }\n    li {\n      margin-bottom: 10px;\n    }\n  </style>\n</head>\n<body>\n  <ul>\n    <li>Learn HTML basics</li>\n    <li>Master CSS styling</li>\n    <li>Build interactive pages</li>\n  </ul>\n</body>\n</html>",
+        "hint": "Try different list-style-type values and adjust spacing to make lists easier to read."
+    },
+    {
+        "id": 8,
+        "title": "Perfect Your Navbar",
+        "story": "Your navbar is your website’s compass. Let's style it so users can easily navigate while making it visually sleek.",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Navbar Styling</title>\n  <style>\n    nav {\n      background-color: #333;\n      overflow: hidden;\n      padding: 10px 0;\n    }\n    nav a {\n      color: white;\n      text-decoration: none;\n      padding: 14px 20px;\n      float: left;\n      font-weight: bold;\n      font-family: Arial, sans-serif;\n    }\n    nav a:hover {\n      background-color: #575757;\n    }\n  </style>\n</head>\n<body>\n  <nav>\n    <a href=\"#\">Home</a>\n    <a href=\"#\">About</a>\n    <a href=\"#\">Contact</a>\n  </nav>\n</body>\n</html>",
+        "hint": "Use nav and style a tags with hover effects for interactive navigation."
+    },
+    {
+        "id": 9,
+        "title": "Beautiful Sections with Classes and Divs",
+        "story": "Websites are like stories broken into chapters. Sections and divisions help organize content — now let's style them!",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Styled Sections</title>\n  <style>\n    section {\n      background-color: #e0f7fa;\n      padding: 20px;\n      margin-bottom: 15px;\n      border-radius: 8px;\n      box-shadow: 0 2px 5px rgba(0,0,0,0.1);\n    }\n    section h2 {\n      color: #00796b;\n      font-family: 'Verdana', sans-serif;\n    }\n  </style>\n</head>\n<body>\n  <section>\n    <h2>About Our Journey</h2>\n    <p>This section tells a story about learning web development.</p>\n  </section>\n  <section>\n    <h2>Next Steps</h2>\n    <p>What you will learn in the upcoming exercises.</p>\n  </section>\n</body>\n</html>",
+        "hint": "Use section tags and style with backgrounds, padding, and shadows to separate content visually."
+    },
+    {
+        "id": 10,
+        "title": "Footer Fun",
+        "story": "The footer is like the sign-off in a letter. Let’s make it look friendly and clear with simple styling.",
+        "theory": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Footer Styling</title>\n  <style>\n    footer {\n      background-color: #1e90ff;\n      color: white;\n      text-align: center;\n      padding: 15px 0;\n      position: fixed;\n      width: 100%;\n      bottom: 0;\n      font-family: 'Courier New', monospace;\n      font-weight: bold;\n    }\n  </style>\n</head>\n<body>\n  <footer>\n    &copy; 2025 TechLearn Internship Challenge\n  </footer>\n</body>\n</html>",
+        "hint": "Use fixed positioning to keep footer at the bottom and style text for clarity."
+    }
+]
