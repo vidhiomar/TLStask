@@ -18,7 +18,8 @@ export default function SignUpPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/signup', form); // Replace with full URL if needed
+      const response = await axios.post('http://localhost:3000/api/user/signup', form);
+ // Use userController route
       console.log('Sign-up successful:', response.data);
     } catch (error) {
       console.error('Sign-up error:', error.response?.data || error.message);
