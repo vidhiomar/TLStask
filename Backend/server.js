@@ -5,6 +5,8 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 const userRoutes = require('./routes/userRoutes');
+const exerciseRoutes = require('./routes/exerciseRoutes');
+
 const app = express();
 
 app.use(express.json());
@@ -13,6 +15,7 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 
 app.use('/api/user', userRoutes);
+app.use('/api/exercises', exerciseRoutes);
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
