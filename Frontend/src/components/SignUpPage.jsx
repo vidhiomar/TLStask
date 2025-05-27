@@ -6,10 +6,14 @@ import NavBar from './NavBar1';
 export default function SignUpPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [focusedField, setFocusedField] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
+    setErrorMsg('');
+    setSuccessMsg('');
   };
 
   const handleFocus = (fieldName) => setFocusedField(fieldName);
@@ -17,21 +21,20 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg('');
+    setSuccessMsg('');
     try {
       const response = await axios.post('http://localhost:3000/api/user/signup', form);
- // Use userController route
-      console.log('Sign-up successful:', response.data);
+      setSuccessMsg(response.data.message || 'Account created successfully!');
     } catch (error) {
-      console.error('Sign-up error:', error.response?.data || error.message);
+      setErrorMsg(error.response?.data?.error || error.message);
     }
   };
 
   return (
-// - <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
-  // <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#070054] to-[#d9d9d9] p-4 relative overflow-hidden">
-  <>
-    <NavBar />
-    <div className="min-h-screen flex  pt -13 items-center justify-center bg-gradient-to-b from-[#070054] via-[#d9d9d9] to-[#070054] p-4 relative overflow-hidden">
+    <>
+      <NavBar />
+      <div className="min-h-screen flex  pt -13 items-center justify-center bg-gradient-to-b from-[#070054] via-[#d9d9d9] to-[#070054] p-4 relative overflow-hidden">
         <div className="relative w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#070054]">
             <div className="relative py-8 px-6" style={{ background: 'linear-gradient(135deg, #070054 0%, #0a0066 100%)' }}>
@@ -46,8 +49,17 @@ export default function SignUpPage() {
                 <p className="text-white/80 text-sm mt-2">Create your account to get started</p>
               </div>
             </div>
-
             <div className="p-8 space-y-6">
+              {errorMsg && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm text-center">
+                  {errorMsg}
+                </div>
+              )}
+              {successMsg && (
+                <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded text-green-700 text-sm text-center">
+                  {successMsg}
+                </div>
+              )}
               {/* Name Field */}
               <div className="relative group">
                 <label className="block text-sm font-medium mb-2" style={{ color: '#070054' }}>Name</label>
@@ -153,6 +165,6 @@ export default function SignUpPage() {
           </div>
         </div>
       </div>
-  </>
+    </>
   );
 }
