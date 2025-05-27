@@ -13,28 +13,27 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [successMsg, setSuccessMsg] = useState('');
 
   const handleSignIn = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
-  setErrors({});
+    e.preventDefault();
+    setIsLoading(true);
+    setErrors({});
+    setSuccessMsg('');
 
-  try {
-    const response = await axios.post('http://localhost:3000/api/user/signin', {
-      email,
-      password
-    });
+    try {
+      const response = await axios.post('http://localhost:3000/api/user/signin', {
+        email,
+        password
+      });
 
-    console.log('Sign in successful:', response.data);
-    // Optional: Redirect or store token here
-  } catch (err) {
-    console.error('Sign-in error:', err.response?.data || err.message);
-    setErrors({ general: 'Invalid email or password' });
-  } finally {
-    setIsLoading(false);
-  }
-};
-
+      setSuccessMsg(response.data.message || 'Login successful!');
+    } catch (err) {
+      setErrors({ general: err.response?.data?.error || 'Invalid email or password' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -56,6 +55,13 @@ export default function SignInPage() {
             {errors.general && (
               <div className="mb-6 p-4 bg-red-50 border-red-200 border rounded-xl text-red-600 text-sm animate-slide-in-top">
                 {errors.general}
+              </div>
+            )}
+
+            {/* Success message */}
+            {successMsg && (
+              <div className="mb-6 p-4 bg-green-50 border-green-200 border rounded-xl text-green-700 text-sm animate-slide-in-top">
+                {successMsg}
               </div>
             )}
 
