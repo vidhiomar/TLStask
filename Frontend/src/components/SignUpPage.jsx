@@ -27,7 +27,7 @@ export default function SignUpPage() {
   return (
 // - <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
   // <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#070054] to-[#d9d9d9] p-4 relative overflow-hidden">
-   <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#070054] via-[#3A3987]to-[#070054] p-4 relative overflow-hidden">
+   <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#070054] via-[#d9d9d9] to-[#070054] p-4 relative overflow-hidden">
       <div className="relative w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#070054]">
           <div className="relative py-8 px-6" style={{ background: 'linear-gradient(135deg, #070054 0%, #0a0066 100%)' }}>
