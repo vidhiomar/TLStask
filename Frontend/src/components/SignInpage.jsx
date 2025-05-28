@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import NavBar from './NavBar1';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 
 import googleLogo from '/googleLogo.png';
@@ -14,6 +14,7 @@ export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [successMsg, setSuccessMsg] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -28,6 +29,10 @@ export default function SignInPage() {
       });
 
       setSuccessMsg(response.data.message || 'Login successful!');
+      // Store name in localStorage
+      localStorage.setItem('tls_name', response.data.user.name);
+      // Redirect to dashboard
+      navigate('/dashboard');
     } catch (err) {
       setErrors({ general: err.response?.data?.error || 'Invalid email or password' });
     } finally {
