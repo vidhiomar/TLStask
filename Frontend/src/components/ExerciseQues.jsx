@@ -1,22 +1,31 @@
-// ExerciseQues.jsx
-import React from 'react'
-import { useParams } from 'react-router-dom'
-
-const EXERCISES = {
-  1: {
-    title: "Two Sum",
-    description: "Find indices of the two numbers that add up to a target.",
-    content: "Given an array of integers nums and an integer target..."
-  },
-  // Add others as needed...
-}
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ExerciseQues = () => {
-  const { id } = useParams()
-  const exercise = EXERCISES[id]
+  const { id } = useParams();
+  const [exercise, setExercise] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/exercises') // ⬅️ Updated port to 3000
+      .then(res => {
+        const found = res.data[parseInt(id)];
+        setExercise(found);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching exercise:', err);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <div className="text-center text-gray-400 p-4">Loading...</div>;
+  }
 
   if (!exercise) {
-    return <div className="text-center text-red-500 p-4">Exercise not found</div>
+    return <div className="text-center text-red-500 p-4">Exercise not found</div>;
   }
 
   return (
@@ -24,10 +33,10 @@ const ExerciseQues = () => {
       <h1 className="text-2xl font-bold text-indigo-400 mb-2">{exercise.title}</h1>
       <p className="text-gray-300 mb-4">{exercise.description}</p>
       <pre className="bg-gray-800 p-4 rounded text-sm text-gray-100">
-        {exercise.content}
+        {exercise.explanation || 'No content available.'}
       </pre>
     </div>
-  )
-}
+  );
+};
 
-export default ExerciseQues
+export default ExerciseQues;
