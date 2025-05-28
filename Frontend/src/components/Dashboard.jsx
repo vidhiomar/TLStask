@@ -7,7 +7,7 @@ import Carousel from './Carousel'
 import QuestionList from './QuestionList'
 import DashboardGraph from './DashboardGraph'
 const Dashboard = () => {
-  const userName = 'Vidhi Omar' // Replace with dynamic user data
+  const userName = localStorage.getItem('tls_name') || 'User'; // Fetch name from localStorage
   const fullGreeting = `Hi, ${userName}!`
   const [displayText, setDisplayText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
