@@ -45,11 +45,11 @@ export default function SignInPage() {
               <div className="relative text-center">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3v1h6v-1zm9 3v-1c0-3.866-3.134-7-7-7s-7 3.134-7 7v1H3v6h18v-6h-3z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h1 className="text-white text-3xl font-bold tracking-tight">Welcome Back</h1>
-                <p className="text-white/80 text-sm mt-2">Sign in to continue to your account</p>
+                <h1 className="text-white text-3xl font-bold tracking-tight">Join Us!</h1>
+                <p className="text-white/80 text-sm mt-2">Create your account to get started</p>
               </div>
             </div>
 
