@@ -26,7 +26,7 @@ export default function SignUpPage() {
   };
 
   return (
-// - <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
+// <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-4 relative overflow-hidden">
   // <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#070054] to-[#d9d9d9] p-4 relative overflow-hidden">
   <>
     <NavBar />

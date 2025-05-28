@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Settings } from 'lucide-react'
+import { motion } from 'framer-motion'
+import NavBar from './NavBar1'
+import Calendar from './Calendar'
+import Carousel from './Carousel'
 
 const Dashboard = () => {
-  const userName = 'Jane Doe' // Replace with dynamic user data
-  const fullGreeting = `Hi, ${userName}`
+  const userName = 'Vidhi Omar' // Replace with dynamic user data
+  const fullGreeting = `Hi, ${userName}!`
   const [displayText, setDisplayText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
 
   useEffect(() => {
     let idx = 0
@@ -12,37 +17,56 @@ const Dashboard = () => {
       setDisplayText(fullGreeting.slice(0, idx + 1))
       idx++
       if (idx === fullGreeting.length) clearInterval(timer)
-    }, 100)
+    }, 80)
+
     return () => clearInterval(timer)
   }, [fullGreeting])
 
+  // Blinking cursor
+  useEffect(() => {
+    const blink = setInterval(() => setShowCursor(prev => !prev), 500)
+    return () => clearInterval(blink)
+  }, [])
+
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
-      {/* Greeting with typewriter effect */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 h-8">{displayText}</h1>
-      </div>
-
-      <div className="flex items-center space-x-4">
-        {/* User Avatar */}
-        <img
-          src="https://via.placeholder.com/64"
-          alt="User Avatar"
-          className="w-16 h-16 rounded-full border-2 border-indigo-500"
-        />
-
-        {/* User Info */}
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold text-gray-900">{userName}</h2>
-          <p className="text-gray-600 truncate w-64">
-            Frontend Engineer exploring the latest in React, Tailwind, and AI-driven UIs.
-          </p>
+    <>
+        <NavBar />
+        <div className=" mt-10  flex display-flex">
+        {/* Greeting Section */}
+            <div className="mb-8 inline-block ml-10">
+                <h1 className="text-5xl font-bold  bg-gradient-to-r from-[#211a5a] via-[#3b3676] to-[#352f76] bg-clip-text text-transparent ">
+                {displayText}
+                <motion.span
+                    animate={{ opacity: showCursor ? 1 : 0 }}
+                    transition={{ duration: 0.5, repeat: Infinity, ease: 'easeInOut' }}
+                    className="inline-block ml-1 w-1 h-10 bg-gradient-to-b from-[#352f76] to-[#070054]"
+                />
+                </h1>
+                {/* Underline animation */}
+                <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${(displayText.length / fullGreeting.length) * 100}%` }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+                className="h-1 bg-gradient-to-r from-[#352f76] to-[#070054] rounded-full mt-2"
+                />
+                <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.8, ease: 'easeOut' }}
+                className="text-zinc-500 mt-4 text-lg"
+                >
+                Welcome back! Ready to build something amazing today?
+                </motion.p>
+                <Carousel />
+            </div>
+            <div className='ml-8 mb-4 flex justify-end'>
+                <div className="w-[400px]"> {/* Adjust width as needed */}
+                    <Calendar />
+                </div>
+            </div>
         </div>
-
-        {/* Settings Icon */}
-        <Settings className="w-6 h-6 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" />
-      </div>
-    </div>
+     
+    </>    
   )
 }
 
