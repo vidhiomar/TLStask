@@ -26,6 +26,10 @@ export default function SignUpPage() {
     try {
       const response = await axios.post('http://localhost:3000/api/user/signup', form);
       setSuccessMsg(response.data.message || 'Account created successfully!');
+      // Store name in localStorage for dashboard greeting
+      localStorage.setItem('tls_name', form.name);
+      // Redirect to dashboard page
+      window.location.href = '/dashboard';
     } catch (error) {
       setErrorMsg(error.response?.data?.error || 'Invalid email or password');
     }
