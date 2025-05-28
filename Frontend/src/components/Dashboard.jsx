@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import NavBar from './NavBar1'
 import Calendar from './Calendar'
 import Carousel from './Carousel'
+import QuestionList from './QuestionList'
 
 const Dashboard = () => {
   const userName = 'Vidhi Omar' // Replace with dynamic user data
@@ -64,6 +65,9 @@ const Dashboard = () => {
                     <Calendar />
                 </div>
             </div>
+        </div>
+        <div className="mr-10">
+            <QuestionList />
         </div>
      
     </>    
