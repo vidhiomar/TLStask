@@ -8,7 +8,7 @@ const ExerciseQues = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/exercises') // ⬅️ Updated port to 3000
+    axios.get('http://localhost:3000/api/exercises')
       .then(res => {
         const found = res.data[parseInt(id)];
         setExercise(found);
