@@ -1,9 +1,7 @@
 // src/NavBar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavItem from './NavItem';
-import { Link } from 'react-router-dom';
-import { useParams, useNavigate } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -16,6 +14,20 @@ const links = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in
+    const userName = localStorage.getItem('tls_name');
+    setIsLoggedIn(!!userName);
+  }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem('tls_name');
+    setIsLoggedIn(false);
+    navigate('/');
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-[#070054]">
@@ -35,16 +47,28 @@ export default function NavBar() {
                 {link.name}
               </NavItem>
             ))}
+            {isLoggedIn && (
+              <NavItem href="/dashboard">Dashboard</NavItem>
+            )}
           </ul>
 
-          {/* Desktop Sign Up */}
+          {/* Desktop Sign Up/Sign Out */}
           <div className="hidden md:flex">
-            <Link
-              to="/signup"
-              className="px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
-            >
-              Sign Up
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={handleSignOut}
+                className="px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                to="/signup"
+                className="px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+              >
+                Sign Up
+              </Link>
+            )}
           </div>
 
           {/* Mobile Toggle */}
@@ -75,16 +99,28 @@ export default function NavBar() {
                 {link.name}
               </NavItem>
             ))}
+            {isLoggedIn && (
+              <NavItem href="/dashboard">Dashboard</NavItem>
+            )}
           </ul>
 
-          {/* Mobile Sign Up */}
+          {/* Mobile Sign Up/Sign Out */}
           <div className="px-4 pb-4">
-            <Link
-              to="/signup"
-              className="block text-center px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
-            >
-              Sign Up
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={handleSignOut}
+                className="block w-full text-center px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                to="/signup"
+                className="block text-center px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+              >
+                Sign Up
+              </Link>
+            )}
           </div>
         </div>
       )}
