@@ -5,7 +5,7 @@ import NavBar from './NavBar1'
 import Calendar from './Calendar'
 import Carousel from './Carousel'
 import QuestionList from './QuestionList'
-
+import DashboardGraph from './DashboardGraph'
 const Dashboard = () => {
   const userName = 'Vidhi Omar' // Replace with dynamic user data
   const fullGreeting = `Hi, ${userName}!`
@@ -66,8 +66,9 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
-        <div className="mr-10">
+        <div className="mr-10 flex display-flex">
             <QuestionList />
+            <DashboardGraph/>
         </div>
      
     </>    

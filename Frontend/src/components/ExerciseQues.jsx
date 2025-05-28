@@ -1,7 +1,7 @@
-// src/components/ExerciseQues.jsx
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import CodeEditor from './CodeEditor'
+import NavBar from './NavBar1'
 
 const EXERCISES = {
   1: {
@@ -269,9 +269,9 @@ const EXERCISES = {
   <style>
     /* Style the footer element */
     footer {
-      background-color: #1e90ff; /* Dodger blue */
+      background-color: #070054; /* Dodger blue */
       color: white; /* White text */
-      text-align: center; /* Center content */
+      text-align: center; 
       padding: 15px 0; /* Vertical padding */
       position: fixed; /* Fix footer at bottom */
       width: 100%; /* Full width */
@@ -302,26 +302,22 @@ const ExerciseQues = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-8 p-6 bg-gray-900 text-white rounded-lg shadow-lg space-y-6">
-      {/* Back Button */}
-      <button
-        onClick={() => navigate('/dashboard')}
-        className="bg-indigo-600 hover:bg-indigo-700 text-sm text-white px-4 py-2 rounded-md"
-      >
-        ← Back to Dashboard
-      </button>
-
-      {/* Title */}
-      <h1 className="text-3xl font-bold text-indigo-400">{exercise.title}</h1>
-
-      {/* Description */}
-      <p className="text-gray-300">{exercise.description}</p>
-
-      {/* Code Editor + Live Preview */}
-      <div className="h-[500px]">
-        <CodeEditor initialCode={exercise.code} />
+    <>
+      <NavBar/>
+       <button
+          onClick={() => navigate('/dashboard')}
+          className="bg-[#070054] mt-5 ml-4 hover:bg-indigo-700  text-sm text-white px-4 py-2 rounded-md"
+        >
+          Back
+        </button>
+      <div className="max-w-6xl mx-auto mt-5 p-6 bg-gray-900 mb-10 text-white rounded-lg shadow-lg space-y-6">
+        <h1 className="text-3xl font-bold text-indigo-400">{exercise.title}</h1>
+        <p className="text-gray-300">{exercise.description}</p>
+        <div className="h-[450px]">
+          <CodeEditor initialCode={exercise.code} />
+        </div>
       </div>
-    </div>
+    </>  
   )
 }
 

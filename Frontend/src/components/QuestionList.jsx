@@ -64,7 +64,7 @@ const QuestionList = ({ exercises = SAMPLE_EXERCISES }) => {
   )
 
   return (
-    <div className="bg-gray-900 text-white max-w-3xl mt-5 mb-8 ml-[25px] rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-gray-900 text-white max-w-3xl mt-5 mb-8 ml-[25px] h-[420px] overflow-y-auto rounded-lg shadow-lg overflow-hidden">
       <div className="px-4 py-4 border-b border-gray-700">
         <input
           type="text"
