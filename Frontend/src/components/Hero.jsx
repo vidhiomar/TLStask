@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import Typewriter from './Typewriter';
 import { useNavigate } from 'react-router-dom';
 import Card from './Card';
+import Dashboard from './Dashboard';
 
 export default function Hero() {
   const navigate = useNavigate();
