@@ -37,7 +37,7 @@ const Dashboard = () => {
             <div className="mb-8 inline-block ml-10">
                 <h1 className="text-5xl font-bold  bg-gradient-to-r from-[#211a5a] via-[#3b3676] to-[#352f76] bg-clip-text text-transparent ">
                 {displayText}
-                <motion.span
+                <motion.span        
                     animate={{ opacity: showCursor ? 1 : 0 }}
                     transition={{ duration: 0.5, repeat: Infinity, ease: 'easeInOut' }}
                     className="inline-block ml-1 w-1 h-10 bg-gradient-to-b from-[#352f76] to-[#070054]"

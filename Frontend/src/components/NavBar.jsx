@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import NavItem from './NavItem';
 import { Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'
+
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -20,7 +22,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 justify-between">
           {/* Logo */}
-          <div className="flex items-center flex-shrink-0">
+          <div className="flex items-center flex-shrink-0" >
             <div className="bg-white border rounded-lg p-1">
               <img src="/TLSlogo.png" alt="TechLearn Logo" className="h-8" />
             </div>
