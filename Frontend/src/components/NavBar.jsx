@@ -1,3 +1,4 @@
+// src/NavBar.jsx
 import React, { useState } from 'react';
 import NavItem from './NavItem';
 import { Link } from 'react-router-dom';
