@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 exports.signup = async (req, res) => {
@@ -33,7 +34,14 @@ exports.signin = async (req, res) => {
         const match = await bcrypt.compare(password, user.password);
         if (!match) return res.status(401).json({ error: "Invalid email or password" });
 
-        res.status(200).json({ message: "Login successful" });
+        // 🔐 Generate JWT
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '2h' });
+
+        res.status(200).json({
+            message: "Login successful",
+            token,
+            user: { name: user.name, email: user.email }
+        });
     } catch (err) {
         res.status(500).json({ error: "Internal server error" });
     }
