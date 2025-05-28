@@ -31,8 +31,8 @@ export default function SignInPage() {
       setSuccessMsg(response.data.message || 'Login successful!');
       // Store name in localStorage
       localStorage.setItem('tls_name', response.data.user.name);
-      // Redirect to dashboard
-      navigate('/dashboard');
+      // Redirect to home page
+      navigate('/');
     } catch (err) {
       setErrors({ general: err.response?.data?.error || 'Invalid email or password' });
     } finally {

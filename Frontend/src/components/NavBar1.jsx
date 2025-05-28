@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavItem from './NavItem';
+import { useNavigate } from 'react-router-dom';
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -12,6 +13,19 @@ const links = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userName = localStorage.getItem('tls_name');
+    setIsLoggedIn(!!userName);
+  }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem('tls_name');
+    setIsLoggedIn(false);
+    navigate('/');
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-[#070054]">
@@ -33,7 +47,15 @@ export default function NavBar() {
             ))}
           </ul>
 
-          
+          {/* Desktop Sign Out */}
+          {isLoggedIn && (
+            <button
+              onClick={handleSignOut}
+              className="px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+            >
+              Sign Out
+            </button>
+          )}
 
           {/* Mobile Toggle */}
           <div className="md:hidden">
@@ -43,11 +65,13 @@ export default function NavBar() {
               aria-label="Toggle menu"
             >
               {open ? (
-                /* X icon */ 
-                <svg className="w-6 h-6" /* ... */ />
+                <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               ) : (
-                /* ☰ icon */
-                <svg className="w-6 h-6" /* ... */ />
+                <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
               )}
             </button>
           </div>
@@ -65,7 +89,17 @@ export default function NavBar() {
             ))}
           </ul>
 
-          
+          {/* Mobile Sign Out */}
+          {isLoggedIn && (
+            <div className="px-4 pb-4">
+              <button
+                onClick={handleSignOut}
+                className="block w-full text-center px-4 py-2 bg-white text-[#070054] rounded-md font-medium hover:bg-gray-100 transition duration-200"
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
         </div>
       )}
     </nav>
