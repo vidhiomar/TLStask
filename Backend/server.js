@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/userRoutes');
 const exerciseRoutes = require('./routes/exerciseRoutes');
-const progressRoutes = require('./routes/progress');
+const progressRoutes = require('./routes/progressRoutes');
 
 
 const app = express();
