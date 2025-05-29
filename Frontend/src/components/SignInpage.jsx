@@ -29,7 +29,8 @@ export default function SignInPage() {
       });
 
       setSuccessMsg(response.data.message || 'Login successful!');
-      // Store name in localStorage
+      // Store token and name in localStorage
+      localStorage.setItem('token', response.data.token);
       localStorage.setItem('tls_name', response.data.user.name);
       // Redirect to home page
       navigate('/');

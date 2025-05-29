@@ -1,7 +1,21 @@
-import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import CodeEditor from './CodeEditor'
-import NavBar from './NavBar1'
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import CodeEditor from './CodeEditor';
+import NavBar from './NavBar1';
+import {jwtDecode} from 'jwt-decode';
+
+const getUserIdFromToken = () => {
+  const token = localStorage.getItem('token');
+  if (!token) return null;
+  try {
+    const decoded = jwtDecode(token);
+    return decoded.userId;
+  } catch {
+    return null;
+  }
+};
+
+
 
 const EXERCISES = {
   1: {
@@ -291,34 +305,68 @@ const EXERCISES = {
 }
 
 const ExerciseQues = () => {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const exercise = EXERCISES[id]
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const exercise = EXERCISES[id];
+
+  const markAsComplete = async () => {
+    const userId = getUserIdFromToken();
+    if (!userId) return alert("User not logged in");
+
+    try {
+      const response = await fetch("http://localhost:3000/api/progress/complete", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ userId, exerciseId: id })
+      });
+
+      const data = await response.json();
+      alert("✅ Progress saved!");
+
+      const nextId = parseInt(id) + 1;
+      if (EXERCISES[nextId]) {
+        navigate(`/exercise/${nextId}`);
+      } else {
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.error("❌ Error saving progress:", error);
+      alert("❌ Failed to save progress");
+    }
+  };
 
   if (!exercise) {
     return (
       <div className="text-center text-red-500 p-4">Exercise not found</div>
-    )
+    );
   }
 
   return (
     <>
-      <NavBar/>
-       <button
-          onClick={() => navigate('/dashboard')}
-          className="bg-[#070054] mt-5 ml-4 hover:bg-indigo-700  text-sm text-white px-4 py-2 rounded-md"
-        >
-          Back
-        </button>
+      <NavBar />
+      <button
+        onClick={() => navigate('/dashboard')}
+        className="bg-[#070054] mt-5 ml-4 hover:bg-indigo-700 text-sm text-white px-4 py-2 rounded-md"
+      >
+        Back
+      </button>
       <div className="max-w-6xl mx-auto mt-5 p-6 bg-gray-900 mb-10 text-white rounded-lg shadow-lg space-y-6">
         <h1 className="text-3xl font-bold text-indigo-400">{exercise.title}</h1>
         <p className="text-gray-300">{exercise.description}</p>
         <div className="h-[450px]">
           <CodeEditor initialCode={exercise.code} />
+          <button
+            onClick={markAsComplete}
+            className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
+          >
+            ✅ Mark Exercise as Complete
+          </button>
         </div>
       </div>
-    </>  
-  )
-}
+    </>
+  );
+};
 
-export default ExerciseQues
+export default ExerciseQues;
