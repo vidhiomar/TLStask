@@ -1,8 +1,10 @@
+// Import required modules
 const express = require('express');
 const router = express.Router();
-const { getUserProgress, markExerciseComplete } = require('../controllers/progressController');
+const { getUserProgress, markExerciseComplete } = require('../controllers/progressController'); // Import progress controller functions
 
-router.get('/:userId', getUserProgress);
-router.post('/complete', markExerciseComplete);
+// Define routes for progress tracking
+router.get('/:userId', getUserProgress); // Route to fetch user progress
+router.post('/complete', markExerciseComplete); // Route to mark an exercise as complete
 
-module.exports = router;
+module.exports = router; // Export the router

@@ -1,8 +1,10 @@
+// Import required modules
 const express = require('express');
 const router = express.Router();
-const { signup, signin } = require('../controllers/userController');
+const { signup, signin } = require('../controllers/userController'); // Import user controller functions
 
-router.post('/signup', signup);
-router.post('/signin', signin);
+// Define routes for user authentication
+router.post('/signup', signup); // Route for user signup
+router.post('/signin', signin); // Route for user signin
 
-module.exports = router;
+module.exports = router; // Export the router
