@@ -1,133 +1,149 @@
-<!-- PROJECT BANNER -->
+🚀 TechLearn Solutions – Full Stack Web Application
+An interactive, educational web application with a sleek landing page, responsive UI, user authentication, and persistent progress tracking – built as part of a TechLearn Solutions challenge.
 
-<p align="center">
-  <img src="/Frontend/public/readme.png" alt="TechLearn Solutions Banner" />
-</p>
-
-# 🚀 TechLearn Solutions – Concept Landing Page
-
-> A sleek, interactive webapp built as a front-end challenge for **TechLearn Solutions**.
-
-
-
-## 📋 Table of Contents
-
-1. [Demo & Screenshots](#-demo--screenshots)
-2. [Installation](#-installation)
-3. [Folder Structure](#-folder-structure)
-4. [Tech Stack](#-tech-stack)
-5. [Features](#-features)
-6. [Contributing](#-contributing)
-7. [License](#-license)
-8. [Contact](#-contact)
-
-
-
-## 🎥 Demo & Screenshots
-
-<p align="center">
-    <img width="700" src="/Frontend/public/readme.png" alt="Desktop View" />
-</p>
-
-<p align="center">
-  <img width="300" src="/Frontend/public/readme2.png" alt="Mobile View" />
-</p>
-
-
-## 🔧 Installation
-
-# Clone repository
-git clone https://github.com/vidhiomar/TLStask.git
-cd TLStask
+📁 Folder Structure
+arduino
+Copy code
+TLSTask/
+├── Backend/
+│   ├── controllers/
+│   │   ├── exerciseController.js
+│   │   ├── progressController.js
+│   │   └── userController.js
+│   ├── models/
+│   │   └── User.js
+│   ├── routes/
+│   │   ├── exerciseRoutes.js
+│   │   ├── progressRoutes.js
+│   │   └── userRoutes.js
+│   ├── data/
+│   │   └── exercises.json
+│   ├── server.js
+│   └── .env
+│
+├── Frontend/
+│   ├── public/
+│   │   ├── readme.png
+│   │   ├── readme2.png
+│   │   ├── googleLogo.png
+│   │   └── GithubLogo.png
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── SignInPage.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── ...
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── index.css
+│   │   └── tailwind.config.js
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
+🔧 Installation & Setup
+⚙️ Backend (Express + MongoDB)
+bash
+Copy code
+# Navigate to backend
+cd Backend
 
 # Install dependencies
 npm install
 
-# Start dev server
+# Add a .env file
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret_key
+
+# Start the server
+node server.js
+Server runs at: http://localhost:3000
+
+🌐 Frontend (React + Vite)
+bash
+Copy code
+# Navigate to frontend
+cd Frontend
+
+# Install dependencies
+npm install
+
+# Start the dev server
 npm run dev
+Frontend runs at: http://localhost:5173 (default Vite port)
 
-## 📂 Folder Structure
+🛠 Tech Stack
+Frontend
+Tool / Library	Purpose
+⚛️ React	UI Components & State Management
+💨 Tailwind CSS	Utility-first CSS styling
+🤖 Framer Motion	Page animations & transitions
+🎯 Vite	Fast dev server & build tool
+🖋️ Lucide-react	Icon set
+🧠 Monaco Editor	Embedded code editor
+📦 react-fast-marquee	Marquee animations
 
-TECH SOLUTIONS/
-├─ .vite/
-├─ Backend/
-├─ Frontend/
-│  ├─ public/
-│  │  ├─ awslLogo.png
-│  │  └─ ...
-│  ├─ src/
-│  │  ├─ assets/
-│  │  ├─ components/
-│  │  ├─ App.jsx
-│  │  ├─ main.jsx
-│  │  ├─ index.css
-│  │  └─ tailwind.config.js
-│  ├─ package.json
-│  └─ vite.config.js
-├─ package.json
-└─ README.md
-```
+Backend
+Tool / Library	Purpose
+🧩 Express	API Server
+🛢 MongoDB + Mongoose	Database & ODM
+🔐 bcryptjs & JWT	Auth: hashing + token auth
+📃 Morgan	Request logging
+🔄 CORS	Cross-origin support
+📂 FileSystem	Data storage for exercises/progress
 
----
+✨ Features
+🔐 Authentication
+Secure signup and login
 
-## 🛠️ Tech Stack
+Token-based access with JWT
 
-| Technology            | Usage                            |
-| --------------------- | -------------------------------- |
-| ⚛️ React              | UI components & state management |
-| 🎨 Tailwind CSS       | Utility-first styling            |
-| 🤖 Framer Motion      | Animations & transitions         |
-| 💨 Vite               | Dev server & build tool          |
-| 🏹 ESLint             | Code linting                     |
-| 🔧 Prettier           | Code formatting                  |
-| 📦 react-fast-marquee | Vertical marquee animations      |
-| 🖋️ lucide-react      | Iconography                      |
-| 🖥️ Monaco Editor     | Embedded HTML/CSS/JS code editor |
+Password hashing with bcrypt
 
-\--------------- | ---------------------------------- |
-\| ⚛️ React         | UI components & state management   |
-\| 🎨 Tailwind CSS | Utility-first styling              |
-\| 🤖 Framer Motion| Animations & transitions           |
-\| 💨 Vite         | Dev server & build tool            |
-\| 🏹 ESLint       | Code linting                       |
-\| 🔧 Prettier     | Code formatting                    |
-\| 📦 react-fast-marquee | Vertical marquee animations  |
-\| 🖋️ lucide-react | Iconography                        |
+📚 Exercises
+Fetch exercise content from JSON
 
----
+Track and persist completion status
 
-## ✨ Features
+🧠 Progress Tracking
+Save completed exercises per user
 
-* **Embedded Code Editor:** Live HTML, CSS & JavaScript playground with real-time preview.
-* **Responsive Design:** Mobile-first layout with smooth breakpoints
-* **Animated Hero:** Typewriter effect + CTA buttons
-* **Sticky Navbar:** Configurable hover & scroll behaviors
-* **Interactive Marquee:** Dual vertical marquees showcasing skills
-* **Smooth Scrolling:** Framer Motion reveal on section entry
-* **Custom Components:** Reusable cards, buttons, modals
-* **Accessibility:** ARIA labels, keyboard navigation
-* **Dark Mode Ready:** Easily switch themes (future enhancement)
+Auto-fetch progress on login
 
----
+💻 Frontend UI
+Embedded code editor
 
-## 📝 Roadmap
+Hero section with animation
 
-* ✅ Basic landing page structure
-* ✅ Hero typewriter & navbar
-* ✅ Marquee & feature sections
-* ⏳ Dark/Light mode toggle
-* ⏳ Unit tests & CI pipeline
-* ⏳ Internationalization (i18n)
+Responsive design with Tailwind
 
----
+Custom components (navbar, modals, cards)
 
-## 🤝 Contributing
+🧪 To-Do / Enhancements
+ Dark mode toggle
 
-1. **Fork** the repo
-2. Create a **branch** (`git checkout -b feat/my-feature`)
-3. **Commit** your changes (`git commit -m "feat: add new feature"`)
-4. **Push** to the branch (`git push origin feat/my-feature`)
-5. Open a **Pull Request**
+ Internationalization (i18n)
 
-Please follow the [Contributor Covenant](CODE_OF_CONDUCT.md) and maintain clear, descriptive commit messages.
+ Profile page with stats
+
+ Real-time code evaluation (bonus)
+
+ Deploy backend on Render / Railway
+
+ Deploy frontend on Vercel
+
+📸 Screenshots
+<p align="center"> <img width="700" src="/Frontend/public/readme.png" alt="Desktop View" /> <br /> <img width="300" src="/Frontend/public/readme2.png" alt="Mobile View" /> </p>
+🤝 Contributing
+Fork this repository
+
+Create a new branch: git checkout -b feature/my-feature
+
+Commit your changes: git commit -m "feat: Add X feature"
+
+Push to your branch: git push origin feature/my-feature
+
+Open a pull request
+
+🧾 License
+MIT License © 2025 TechLearn Solutions
 
